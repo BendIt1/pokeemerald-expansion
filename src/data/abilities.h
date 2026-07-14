@@ -2444,7 +2444,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Normal moves turn Dragon."),
     },
 
-<<<<<<< Updated upstream
     [ABILITY_EELEVATE] =
     {
         .name = _("Eelevate"),
@@ -2455,12 +2454,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("-------"),
         .description = COMPOUND_STRING("No special ability."),
-=======
+    },
     [ABILITY_FREELOADER] =
     {
         .name = _("Wave Glider"),
         .description = COMPOUND_STRING("Raises Speed in Psy Terrain."),
->>>>>>> Stashed changes
     },
 
     [ABILITY_MEGA_SOL] =
@@ -2469,17 +2467,15 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Acts like under sun."),
     },
 
-<<<<<<< Updated upstream
     [ABILITY_FIRE_MANE] =
     {
         .name = _("Fire Mane"),
         .description = COMPOUND_STRING("Unimplemented."),
-=======
+    },
     [ABILITY_ERODED] =
     {
         .name = _("Eroded"),
         .description = COMPOUND_STRING("If hit, -Speed + Atk."),
->>>>>>> Stashed changes
     },
 
     [ABILITY_INITIATIVE] =

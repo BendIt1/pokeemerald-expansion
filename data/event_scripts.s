@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #include "config/general.h"
 #include "config/battle.h"
 #include "config/item.h"
@@ -79,8 +78,6 @@
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
-=======
->>>>>>> Stashed changes
 
 	.include "data/maps/TestFolder_Submap1/scripts.inc"
 
