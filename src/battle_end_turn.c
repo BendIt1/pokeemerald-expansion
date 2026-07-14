@@ -1332,11 +1332,13 @@ static bool32 HandleEndTurnThirdEventBlock(enum BattlerId battler)
         case ABILITY_TRUANT: // Not fully accurate but it has to be handled somehow. TODO: Find a better way.
         case ABILITY_CUD_CHEW:
         case ABILITY_SLOW_START:
+        case ABILITY_INITIATIVE:
         case ABILITY_BAD_DREAMS:
         case ABILITY_BALL_FETCH:
         case ABILITY_HARVEST:
         case ABILITY_MOODY:
         case ABILITY_PICKUP:
+        case ABILITY_MAKE_A_WISH :
         case ABILITY_SPEED_BOOST:
             if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, battler, ability, MOVE_NONE, TRUE))
                 effect = TRUE;

@@ -133,7 +133,20 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "TestFolder_Submap1",
+    "TestFolder_Submap2",
+    "SoothingWaterfall",
+    "StarfallLake",
+    "WindyClearing",
+    "PetalburgDeppWoods",
+    "BreezyCave_FirstFloor",
+    "BreezyCave_SecondFloor",
+    "BreezyCave_ThirdFloor",
+    "BreezyCave_FourthFloor",
+    "RustboroCity_LaboratoryCoast",
+    "Testing",
+    "agagagaga"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

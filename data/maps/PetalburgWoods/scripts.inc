@@ -274,6 +274,16 @@ PetalburgWoods_EventScript_Lyle::
 	msgbox PetalburgWoods_Text_ImOutOfPokeBalls, MSGBOX_AUTOCLOSE
 	end
 
+PetalburgWoods_EventScript_Apollo::
+	trainerbattle_single TRAINER_APOLLO, PetalburgWoods_Text_ApolloIntro, PetalburgWoods_Text_ApolloDefeat
+	msgbox PetalburgWoods_Text_ApolloPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Apollo2::
+	trainerbattle_single TRAINER_APOLLO, PetalburgWoods_Text_Apollo2Intro, PetalburgWoods_Text_Apollo2Defeat
+	msgbox PetalburgWoods_Text_Apollo2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
 PetalburgWoods_EventScript_James::
 	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
 	specialvar VAR_RESULT, ShouldTryRematchBattle
@@ -471,3 +481,24 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_ApolloIntro:
+	.string "I caught a weird Pokémon in my\n"
+	.string "net!$"
+
+PetalburgWoods_Text_ApolloDefeat:
+	.string "It's not Insect-type you say…$"
+
+PetalburgWoods_Text_ApolloPostBattle:
+	.string "Do you think it can still evolve\n"
+	.string "into a Bug-Type?$"
+
+PetalburgWoods_Text_Apollo2Intro:
+	.string "I caught a weird Pokémon in my\n"
+	.string "net!$"
+
+PetalburgWoods_Text_Apollo2Defeat:
+	.string "It's not Insect-type you say…$"
+
+PetalburgWoods_Text_Apollo2PostBattle:
+	.string "Do you think it can still evolve\n"
+	.string "into a Bug-Type?$"

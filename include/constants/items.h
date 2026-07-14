@@ -1052,6 +1052,17 @@ enum __attribute__((packed)) Item
     ITEM_TATSUGIRINITE = 872,
     ITEM_GLIMMORANITE = 873,
 
+    ITEM_CUT_TOOL = 874,
+    ITEM_FLY_TOOL = 875,
+    ITEM_SURF_TOOL = 876,
+    ITEM_STRENGTH_TOOL = 877,
+    ITEM_FLASH_TOOL = 878,
+    ITEM_ROCKSMASH_TOOL = 879,
+    ITEM_WATERFALL_TOOL = 880,
+    ITEM_DIVE_TOOL = 881,
+    ITEM_TELEPORT_TOOL = 882,
+    ITEM_SWEETSCENT_TOOL = 883,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };
@@ -1104,11 +1115,11 @@ enum BerryId
 #define STANDARD_BIKE 2
 
 // Item parameters for EXP Candies
-#define EXP_100   1
-#define EXP_800   2
-#define EXP_3000  3
-#define EXP_10000 4
-#define EXP_30000 5
+#define EXP_200   1
+#define EXP_700   2
+#define EXP_2200  3
+#define EXP_5000 4
+#define EXP_10000 5
 
 // Item type IDs (used to determine the exit callback)
 enum ItemType

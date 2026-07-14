@@ -77,6 +77,7 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "party_menu.h"
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -266,7 +267,7 @@ static void DisplayPartyPokemonHPBarCheck(struct Pokemon *, struct PartyMenuBox 
 static void DisplayPartyPokemonDescriptionText(u8, struct PartyMenuBox *, u8);
 static bool8 IsMonAllowedInMinigame(u8);
 static void DisplayPartyPokemonDataToTeachMove(u8, enum Move);
-static enum CanMoveBeLearned CanTeachMove(struct Pokemon *, enum Move);
+enum CanMoveBeLearned CanTeachMove(struct Pokemon *, enum Move);
 static void DisplayPartyPokemonBarDetail(u8, const u8 *, u8, const u8 *);
 static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 color, const u8 *align, u32 width);
 static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *);
@@ -2354,13 +2355,13 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
     }
 }
 
-static enum CanMoveBeLearned CanTeachMove(struct Pokemon *mon, enum Move move)
+enum CanMoveBeLearned CanTeachMove(struct Pokemon *mon, enum Move move)
 {
     if (GetMonData(mon, MON_DATA_IS_EGG))
         return CANNOT_LEARN_MOVE_IS_EGG;
     else if (!CanLearnTeachableMove(GetMonData(mon, MON_DATA_SPECIES_OR_EGG), move))
         return CANNOT_LEARN_MOVE;
-    else if (MonKnowsMove(mon, move) == TRUE)
+    else if (MonKnowsMove(mon, move))
         return ALREADY_KNOWS_MOVE;
     else
         return CAN_LEARN_MOVE;

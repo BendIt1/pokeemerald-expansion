@@ -100,12 +100,16 @@ enum PcMonSelectionType
     SELECT_PC_MON_EVOLUTION,
 };
 
-enum CanMoveBeLearned
-{
+// Start qol_field_moves
+// These are all moved from src/party_menu.c
+//u8 CanMonLearnTMTutor(struct Pokemon *, u16, u8);
+
+enum CanMoveBeLearned {
     CAN_LEARN_MOVE,
     CANNOT_LEARN_MOVE,
     ALREADY_KNOWS_MOVE,
     CANNOT_LEARN_MOVE_IS_EGG
 };
+// End qol_field_moves
 
 #endif // GUARD_CONSTANTS_PARTY_MENU_H

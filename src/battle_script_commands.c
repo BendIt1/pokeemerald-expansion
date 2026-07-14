@@ -916,6 +916,44 @@ static const struct PickupItem sPickupTable[] =
 
 #undef _
 
+#define _ 0
+
+static const struct PickupItem sWishTable[] =
+{//   Item                      1+  11+  21+  31+  41+  51+  61+  71+  81+  91+   Levels
+    { ITEM_POTION,          {  35,   _,   _,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_TINY_MUSHROOM,   {  25,  10,   _,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_REPEL,           {   8,  30,   _,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_SUPER_POTION,    {   8,  10,  30,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_POKE_DOLL,       {   8,  10,   9,  30,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_BIG_MUSHROOM,    {   3,  10,   9,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_SUPER_REPEL,     {   3,  10,   9,   9,  30,   _,   _,   _,   _,   _, } },
+    { ITEM_FULL_HEAL,       {   3,   3,   9,   8,   9,  30,   _,   _,   _,   _, } },
+    { ITEM_REVIVE,          {   3,   3,   3,   8,   8,   9,  30,   _,   _,   _, } },
+    { ITEM_HYPER_POTION,    {   3,   3,   3,   4,   8,   9,   8,  30,   _,   _, } },
+    { ITEM_ETHER,           {   1,   1,   3,   4,   4,   _,   _,   _,   _,   _, } },
+    { ITEM_MAX_REPEL,       {   _,   3,   3,   4,   4,   9,   8,   8,  30,   _, } },
+    { ITEM_MOON_STONE,      {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
+    { ITEM_SUN_STONE,       {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
+    { ITEM_RARE_CANDY,      {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
+    { ITEM_NUGGET,          {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
+    { ITEM_MAX_POTION,      {   _,   _,   3,   4,   4,   4,   8,   8,   9,  30, } },
+    { ITEM_MAX_ETHER,       {   _,   _,   1,   1,   4,   4,   4,   _,   _,   _, } },
+    { ITEM_PP_UP,           {   _,   _,   1,   1,   1,   4,   4,   5,   4,   5, } },
+    { ITEM_BIG_NUGGET,      {   _,   _,   1,   1,   1,   1,   4,   5,   4,   5, } },
+    { ITEM_DESTINY_KNOT,    {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
+    { ITEM_LEFTOVERS,       {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
+    { ITEM_MENTAL_HERB,     {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
+    { ITEM_POWER_HERB,      {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
+    { ITEM_WHITE_HERB,      {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
+    { ITEM_BALM_MUSHROOM,   {   _,   _,   1,   4,   4,   4,   4,   5,   4,   5, } },
+    { ITEM_MAX_REVIVE,      {   _,   _,   _,   4,   4,   4,   4,   7,   9,   9, } },
+    { ITEM_ELIXIR,          {   _,   _,   _,   _,   1,   1,   4,   5,   4,   5, } },
+    { ITEM_MAX_ELIXIR,      {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
+    { ITEM_BOTTLE_CAP,      {   _,   _,   _,   _,   _,   _,   _,   1,   1,   1, } },
+};
+
+#undef _
+
 bool32 ProteanTryChangeType(enum BattlerId battler, enum Ability ability, enum Move move, enum Type moveType)
 {
       if ((ability == ABILITY_PROTEAN || ability == ABILITY_LIBERO)
@@ -3926,8 +3964,13 @@ static void Cmd_getexp(void)
             else
                 calculatedExp /= 7;
 
+<<<<<<< Updated upstream
             if (GetConfig(B_TRAINER_EXP_MULTIPLIER) <= GEN_7 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                 calculatedExp = (calculatedExp * 150) / 100;
+=======
+            if (B_TRAINER_EXP_MULTIPLIER <= GEN_7 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                calculatedExp = (calculatedExp * 125) / 100;
+>>>>>>> Stashed changes
 
             if (GetConfig(B_SPLIT_EXP) < GEN_6)
             {
@@ -9441,6 +9484,34 @@ static void Cmd_pickup(void)
                     }
                 }
             }
+            else if (ability == ABILITY_MAKE_A_WISH
+                && species != SPECIES_NONE
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE
+                && (Random() % 10) == 0)
+            {
+                if (isInPyramid)
+                {
+                    heldItem = GetBattlePyramidPickupItemId();
+                    SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM, &heldItem);
+                }
+                else
+                {
+                    u32 rand = Random() % 100;
+                    u32 percentTotal = 0;
+
+                    for (j = 0; j < ARRAY_COUNT(sWishTable); j++)
+                    {
+                        percentTotal += sWishTable[j].percentage[lvlDivBy10];
+                        if (rand < percentTotal)
+                        {
+                            SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM, &sWishTable[j].itemId);
+                            break;
+                        }
+                    }
+                }
+            }
+
             else if (ability == ABILITY_HONEY_GATHER
                 && species != 0
                 && species != SPECIES_EGG
@@ -9589,6 +9660,8 @@ static void Cmd_tryrecycleitem(void)
     u16 *usedHeldItem;
 
     if (gCurrentMove == MOVE_NONE && GetBattlerAbility(gBattlerAttacker) == ABILITY_PICKUP)
+        usedHeldItem = &GetBattlerPartyState(gBattlerTarget)->usedHeldItem;
+    else if (gCurrentMove == MOVE_NONE && GetBattlerAbility(gBattlerAttacker) == ABILITY_PICKUP)
         usedHeldItem = &GetBattlerPartyState(gBattlerTarget)->usedHeldItem;
     else
         usedHeldItem = &GetBattlerPartyState(gBattlerAttacker)->usedHeldItem;
@@ -11213,7 +11286,7 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
         u8 expGetterLevel = GetMonData(&gParties[B_TRAINER_PLAYER][expGetterMonId], MON_DATA_LEVEL);
 
         value *= sExperienceScalingFactors[(faintedLevel * 2) + 10];
-        value /= sExperienceScalingFactors[faintedLevel + expGetterLevel + 10];
+        value /= sExperienceScalingFactors[faintedLevel + expGetterLevel + 13];
 
         *expAmount = value + 1;
     }
@@ -13000,9 +13073,9 @@ void BS_TryActivateSoulheart(void)
         if (ability == ABILITY_SOUL_HEART
             && IsBattlerAlive(gBattlerAbility)
             && !NoAliveMonsForEitherParty()
-            && CompareStat(gBattlerAbility, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN, ability))
+            && CompareStat(gBattlerAbility, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN, ability))
         {
-            SetStatChange(gBattlerAbility, STAT_SPATK, 1);
+            SetStatChange(gBattlerAbility, STAT_ATK, 1);
             BattleScriptCall(BattleScript_AbilityStatChange);
             return;
         }

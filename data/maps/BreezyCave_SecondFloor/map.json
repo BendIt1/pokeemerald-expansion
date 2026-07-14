@@ -1,0 +1,49 @@
+{
+  "id": "MAP_BREEZY_CAVE_SECOND_FLOOR",
+  "name": "BreezyCave_SecondFloor",
+  "layout": "LAYOUT_BREEZY_CAVE_SECOND_FLOOR",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_BREEZY_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 8,
+      "y": 14,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_1"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 16,
+      "y": 20,
+      "elevation": 3,
+      "dest_map": "MAP_BREEZY_CAVE_FIRST_FLOOR",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "elevation": 3,
+      "dest_map": "MAP_BREEZY_CAVE_THIRD_FLOOR",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

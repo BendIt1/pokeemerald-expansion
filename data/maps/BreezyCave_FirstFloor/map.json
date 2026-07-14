@@ -1,0 +1,35 @@
+{
+  "id": "MAP_BREEZY_CAVE_FIRST_FLOOR",
+  "name": "BreezyCave_FirstFloor",
+  "layout": "LAYOUT_BREEZY_CAVE_FIRST_FLOOR",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_BREEZY_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 17,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE104",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "elevation": 3,
+      "dest_map": "MAP_BREEZY_CAVE_SECOND_FLOOR",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

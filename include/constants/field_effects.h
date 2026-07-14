@@ -84,6 +84,12 @@
 #define FLDEFF_HALL_OF_FAME_RECORD_FRLG  79
 #define FLDEFF_PHOTO_FLASH               80
 #define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   81
+// Start qol_field_moves
+#define FLDEFF_USE_SURF_TOOL             82
+#define FLDEFF_USE_WATERFALL_TOOL        83
+#define FLDEFF_USE_DIVE_TOOL             84
+#define FLDEFF_USE_TELEPORT_TOOL         85
+// End qol_field_moves
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

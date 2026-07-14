@@ -52,7 +52,10 @@ bool8 FldEff_SweetScent(void)
 #define tPalBuffer1 data[1]
 #define tPalBuffer2 data[2]
 
+// Start qol_field_moves
+//static void StartSweetScentFieldEffect(void)
 void StartSweetScentFieldEffect(void)
+// End qol_field_moves
 {
     void *palBuffer;
     u32 taskId;

@@ -140,6 +140,21 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+enum CanMoveBeLearned CanTeachMove(struct Pokemon *mon, enum Move move);
+// Start qol_field_moves
+// These are all moved from src/party_menu.c
+// qol_field_moves
+//static u8 CanMonLearnTMTutor(struct Pokemon *, u16, u8);
+u8 CanMonLearnTMTutor(struct Pokemon *, u16, u8);
+/*
+enum CanMoveBeLearned {
+    CAN_LEARN_MOVE,
+    CANNOT_LEARN_MOVE,
+    ALREADY_KNOWS_MOVE,
+    CANNOT_LEARN_MOVE_IS_EGG
+}*/;
+
+// End qol_field_moves
 
 bool32 SetUpFieldMove_Surf(void);
 bool32 SetUpFieldMove_Fly(void);

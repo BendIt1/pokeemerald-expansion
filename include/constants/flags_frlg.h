@@ -2355,7 +2355,7 @@
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0
 #define FLAG_ITEM_GRANITE_CAVE_B2F_REPEL                            0
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0
-#define FLAG_ITEM_PETALBURG_WOODS_X_ATTACK                          0
+#define FLAG_ITEM_PETALBURG_WOODS_TM_ELECTROWEB                     0
 #define FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL                        0
 #define FLAG_ITEM_ROUTE_104_POKE_BALL                               0
 #define FLAG_ITEM_PETALBURG_WOODS_ETHER                             0

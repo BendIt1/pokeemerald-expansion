@@ -3726,6 +3726,14 @@ BattleScript_SlowStartEnds::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_InitiativeEnds::
+	pause 5
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_INITIATIVEEND
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_SelectingNotAllowedMoveGravity::
 	printselectionstring STRINGID_GRAVITYPREVENTSUSAGE
 	endselectionscript
@@ -4599,6 +4607,16 @@ BattleScript_PickupActivates::
 	waitmessage B_WAIT_TIME_LONG
 	tryactivateitem BS_ATTACKER, ACTIVATION_ON_PICK_UP
 BattleScript_PickupActivatesEnd:
+	return
+
+BattleScript_MakeAWishActivates::
+	pause 5
+	tryrecycleitem BattleScript_MakeAWishAActivatesEnd
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+	tryactivateitem BS_ATTACKER, ACTIVATION_ON_PICK_UP
+BattleScript_MakeAWishAActivatesEnd:
 	return
 
 BattleScript_HarvestActivates::

@@ -2,15 +2,15 @@
 #define GUARD_CONSTANTS_TMS_HMS_H
 
 #define FOREACH_TM(F) \
-    F(FOCUS_PUNCH) \
+    F(SUPERPOWER) \
     F(DRAGON_CLAW) \
     F(WATER_PULSE) \
     F(CALM_MIND) \
-    F(ROAR) \
+    F(DRAIN_PUNCH) \
     F(TOXIC) \
     F(HAIL) \
     F(BULK_UP) \
-    F(BULLET_SEED) \
+    F(MAGICAL_LEAF) \
     F(HIDDEN_POWER) \
     F(SUNNY_DAY) \
     F(TAUNT) \
@@ -21,37 +21,87 @@
     F(PROTECT) \
     F(RAIN_DANCE) \
     F(GIGA_DRAIN) \
-    F(SAFEGUARD) \
-    F(FRUSTRATION) \
+    F(WIDE_GUARD) \
+    F(LUNGE) \
     F(SOLAR_BEAM) \
     F(IRON_TAIL) \
     F(THUNDERBOLT) \
     F(THUNDER) \
     F(EARTHQUAKE) \
-    F(RETURN) \
-    F(DIG) \
+    F(DIAMOND_STORM) \
+    F(SCORCHING_SANDS) \
     F(PSYCHIC) \
     F(SHADOW_BALL) \
-    F(BRICK_BREAK) \
-    F(DOUBLE_TEAM) \
+    F(ACID_SPRAY) \
+    F(DAZZLING_GLEAM) \
     F(REFLECT) \
-    F(SHOCK_WAVE) \
+    F(CHARGE_BEAM) \
     F(FLAMETHROWER) \
     F(SLUDGE_BOMB) \
     F(SANDSTORM) \
     F(FIRE_BLAST) \
     F(ROCK_TOMB) \
-    F(AERIAL_ACE) \
-    F(TORMENT) \
+    F(PLUCK) \
+    F(PARTING_SHOT) \
     F(FACADE) \
     F(SECRET_POWER) \
-    F(REST) \
-    F(ATTRACT) \
-    F(THIEF) \
+    F(ROCK_SLIDE) \
+    F(DOUBLE_IRON_BASH) \
+    F(KNOCK_OFF) \
     F(STEEL_WING) \
-    F(SKILL_SWAP) \
-    F(SNATCH) \
-    F(OVERHEAT)
+    F(FOLLOW_ME) \
+    F(HONE_CLAWS) \
+    F(OVERHEAT) \
+    F(DRAINING_KISS) \
+    F(POISON_JAB) \
+    F(FIRE_PUNCH) \
+    F(THUNDER_PUNCH) \
+    F(ICE_PUNCH) \
+    F(FOCUS_BLAST) \
+    F(SILVER_WIND) \
+    F(BRAVE_BIRD) \
+    F(FLASH_CANNON) \
+    F(WILD_CHARGE) \
+    F(POUND) \
+    F(DESTINY_BOND) \
+    F(MIRROR_SHOT) \
+    F(AQUA_JET) \
+    F(WILL_O_WISP) \
+    F(CLEAR_SMOG) \
+    F(FLARE_BLITZ) \
+    F(VOLT_SWITCH) \
+    F(DARK_PULSE) \
+    F(AVALANCHE) \
+    F(CRUSH_CLAW) \
+    F(HEX) \
+    F(DUAL_WINGBEAT) \
+    F(MUDDY_WATER) \
+    F(EARTH_POWER) \
+    F(BUG_BUZZ) \
+    F(AIR_SLASH) \
+    F(BULLDOZE) \
+    F(PSYCHO_CUT) \
+    F(BREAKING_SWIPE) \
+    F(ELECTROWEB) \
+    F(TRAILBLAZE) \
+    F(ROOST) \
+    F(TRICK_ROOM) \
+    F(SHORE_UP) \
+    F(DRAGON_PULSE) \
+    F(ICY_WIND) \
+    F(MEGA_PUNCH) \
+    F(LIGHT_OF_RUIN) \
+    F(STORED_POWER) \
+    F(NIGHT_SLASH) \
+    F(SHADOW_CLAW) \
+    F(SOLAR_BLADE) \
+    F(BULLET_PUNCH) \
+    F(LIFE_DEW) \
+    F(COACHING) \
+    F(X_SCISSOR) \
+    F(PLAY_ROUGH) \
+    F(ANCIENT_POWER) \
+    F(SPECTRAL_THIEF)
 
 #define FOREACH_HM(F) \
     F(CUT) \

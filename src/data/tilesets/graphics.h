@@ -1632,6 +1632,24 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
     INCGFX_U16("data/tilesets/secondary/union_room/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/union_room/palettes/15.pal", ".gbapal"),
 };
+const u16 gTilesetPalettes_Icy[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/icy/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/icy/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Icy[] = INCBIN_U32("data/tilesets/primary/icy/tiles.4bpp.lz");
 
 const u32 gTilesetTiles_UnionRoom[] = INCGFX_U32("data/tilesets/secondary/union_room/tiles.png", ".4bpp.fastSmol");
 

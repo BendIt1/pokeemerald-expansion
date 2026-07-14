@@ -117,12 +117,6 @@ struct CombinedMove
     u16 newMove;
 };
 
-static const struct CombinedMove sCombinedMoves[2] =
-{
-    {MOVE_EMBER, MOVE_GUST, MOVE_HEAT_WAVE},
-    {0xFFFF, 0xFFFF, 0xFFFF}
-};
-
 // NOTE: The order of the elements in the array below is irrelevant.
 // To reorder the pokedex, see the values in include/constants/pokedex.h.
 
@@ -3476,11 +3470,11 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, enum Item item, u8 partyI
 
 // EXP candies store an index for this table in their holdEffectParam.
 const u32 sExpCandyExperienceTable[] = {
-    [EXP_100 - 1] = 100,
-    [EXP_800 - 1] = 800,
-    [EXP_3000 - 1] = 3000,
+    [EXP_200 - 1] = 200,
+    [EXP_700 - 1] = 700,
+    [EXP_2200 - 1] = 2200,
+    [EXP_5000 - 1] = 5000,
     [EXP_10000 - 1] = 10000,
-    [EXP_30000 - 1] = 30000,
 };
 
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise

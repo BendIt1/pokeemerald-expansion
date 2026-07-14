@@ -1,7 +1,12 @@
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall
-	checkfieldmove FIELD_MOVE_CUT, TRUE
+@ Start qol_field_moves
+	//checkpartymove MOVE_CUT
+    checkitem ITEM_CUT_TOOL, 1
+    goto_if_eq VAR_RESULT, TRUE, EventScript_UseCutTool
+    checkpartylearnknowsfieldmove ITEM_HM01
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -16,6 +21,7 @@ EventScript_CutTreeCommon:
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 EventScript_CutTreeDown:: @ fallthrough
+	setflag FLAG_SYS_USE_CUT @ qol_field_moves
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
 	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
@@ -63,7 +69,12 @@ EventScript_UseRockSmash::
 @ Interact with smashable rock
 EventScript_RockSmash::
 	lockall
-	checkfieldmove FIELD_MOVE_ROCK_SMASH, TRUE
+@ Start qol_field_moves
+	//checkpartymove MOVE_ROCK_SMASH
+    checkitem ITEM_ROCKSMASH_TOOL,1
+    goto_if_eq VAR_RESULT, TRUE, EventScript_UseRockSmashTool
+    checkpartylearnknowsfieldmove ITEM_HM06
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -73,6 +84,7 @@ EventScript_RockSmash::
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
 EventScript_RockSmashCommon:
+    setflag FLAG_SYS_USE_ROCK_SMASH @ qol_field_moves
 	@ check if follower should use the field move
 	isfollowerfieldmoveuser VAR_0x8004
 	setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
@@ -224,7 +236,12 @@ Text_CantSmash:
 EventScript_StrengthBoulder::
 	lockall
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
-	checkfieldmove FIELD_MOVE_STRENGTH, TRUE
+@ Start qol_field_moves
+	//checkpartymove MOVE_STRENGTH
+    checkitem ITEM_STRENGTH_TOOL,1
+    goto_if_eq VAR_RESULT, TRUE, EventScript_UseStrengthTool
+    checkpartylearnknowsfieldmove ITEM_HM04
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_WantToStrength, MSGBOX_YESNO
@@ -239,6 +256,7 @@ EventScript_UseStrength::
 	lockall
 	dofieldeffect FLDEFF_USE_STRENGTH
 	waitstate
+	call_if_set FLAG_SYS_USE_STRENGTH, EventScript_PushBoulderScript @ qol_field_moves
 	goto EventScript_ActivateStrength
 	end
 
@@ -254,6 +272,7 @@ EventScript_CantStrength::
 	end
 
 EventScript_CheckActivatedBoulder::
+    buffermovename STR_VAR_2, MOVE_STRENGTH @ qol_field_moves
 	msgbox Text_StrengthActivated, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -278,18 +297,27 @@ Text_CantStrength:
 	.string "may be able to push it aside.$"
 
 Text_StrengthActivated:
-	.string "STRENGTH made it possible to move\n"
+	.string "{STR_VAR_2} made it possible to move\n" @ qol_field_moves
 	.string "boulders around.$"
 
 EventScript_UseWaterfall::
 	lockall
-	checkfieldmove FIELD_MOVE_WATERFALL
+@ Start qol_field_moves
+	//checkpartymove MOVE_WATERFALL
+    checkitem ITEM_WATERFALL_TOOL, 1
+    goto_if_eq VAR_RESULT, TRUE, EventScript_UseWaterfallTool
+    checkpartylearnknowsfieldmove ITEM_HM07
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_WantToWaterfall, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
 	msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
+@ Start qol_field_moves
+EventScript_UseWaterfallMon::
+    setflag FLAG_SYS_USE_WATERFALL
+@ End qol_field_moves
 	hidefollowernpc
 	dofieldeffect FLDEFF_USE_WATERFALL
 	callnative FollowerNPC_WarpSetEnd
@@ -318,7 +346,10 @@ Text_MonUsedWaterfall:
 
 EventScript_UseDive::
 	lockall
-	checkfieldmove FIELD_MOVE_DIVE
+@ Start qol_field_moves
+	//checkpartymove MOVE_DIVE
+    call EventScript_CheckDiveToolAndParty
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	copyvar 0x8004 VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -345,7 +376,10 @@ EventScript_EndDive::
 
 EventScript_UseDiveUnderwater::
 	lockall
-	checkfieldmove FIELD_MOVE_DIVE
+@ Start qol_field_moves
+	//checkpartymove MOVE_DIVE
+    call EventScript_CheckDiveToolAndParty
+@ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
