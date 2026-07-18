@@ -1014,3 +1014,56 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+
+LittlerootTown_EventScript_LakeBlockerMan::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_RUNNING_SHOES, LittlerootTown_EventScript_NotBlockingPath
+	msgbox LittlerootTown_Text_DiscoveredFootprints, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_FOOTPRINTS_MAN, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
+LittlerootTown_EventScript_BlockedPath::
+	lockall
+	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepBack
+	applymovement LOCALID_FOOTPRINTS_MAN, LittlerootTown_Movement_BackUp
+	waitmovement 0
+	msgbox LittlerootTown_Text_WaitDontComeInHere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_FOOTPRINTS_MAN, LittlerootTown_Movement_ReturnToOriginalPosition
+	waitmovement 0
+	releaseall
+	end
+
+LittlerootTown_EventScript_NotBlockingPath::
+	msgbox LittlerootTown_Text_FinishedSketchingFootprints, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_Movement_PlayerStepBack:
+	delay_8
+	walk_right
+	step_end
+
+LittlerootTown_Movement_BackUp:
+	walk_fast_up
+	walk_in_place_faster_left
+	lock_facing_direction
+	walk_right
+	unlock_facing_direction
+	step_end
+
+LittlerootTown_Text_WaitDontComeInHere:
+	.string "It just rained over Starfall Lake.\n"
+	.string "I can't let you go through without.\p"
+	.string "better shoes!$"
+
+LittlerootTown_Text_DiscoveredFootprints:
+	.string "You'll need better shoes to go through\n"
+	.string "here! There's mud everywhere.$"
+
+LittlerootTown_Text_FinishedSketchingFootprints:
+	.string "These shoes look acceptable!$"
